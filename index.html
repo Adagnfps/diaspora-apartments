@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Comboni Grand Tower | 18 Luxury Residences in Addis Ababa</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Tailwind Styles -->
+  <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body class="bg-[#fafafa] min-h-screen text-[#141414] antialiased overflow-x-hidden">
+  
+  <!-- Root App Mount -->
+  <div id="app" class="w-full min-h-screen"></div>
+
+  <!-- Modal & Layer Mounts -->
+
+  <div id="intro-layer-container"></div>
+  <div id="property-modal-container"></div>
+  <div id="new-listing-modal-container"></div>
+  <div id="make-offer-modal-container"></div>
+
+  <!-- Application Entry -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

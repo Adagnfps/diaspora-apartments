@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #fafafa;
+    color: #141414;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+/* Minimalist Clean Card inspired by Adagn */
+.adagn-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.adagn-card:hover {
+  border-color: rgba(20, 20, 20, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 16px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Adagn-style Floating Glass Header */
+.adagn-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+}
+
+
+.btn-adagn-secondary {
+  background-color: #ffffff;
+  color: #141414;
+  font-weight: 600;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  border-radius: 1rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-adagn-secondary:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.btn-adagn-secondary:active {
+  transform: scale(0.97);
+}
+
+/* Clean Map Price Badge (Minimalist Black Pill) */
+.custom-map-price-badge {
+  background: transparent !important;
+  border: none !important;
+}
+
+.map-price-pin {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #141414;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 2px #ffffff;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.map-price-pin .pin-pointer {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background-color: #141414;
+}
+
+.map-price-pin:hover,
+.map-price-pin.active {
+  background-color: #000000;
+  color: #ffffff;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 0 0 2px #ffffff;
+}
+
+/* Leaflet Container Stacking Context */
+.leaflet-container {
+  z-index: 10 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 1.5rem;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
+}
+
+/* Modals */
+#property-modal-container,
+#new-listing-modal-container {
+  position: relative;
+  z-index: 99999 !important;
+}
+
+/* Utility to hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
