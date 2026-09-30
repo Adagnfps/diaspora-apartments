@@ -21,7 +21,7 @@ export function renderIntroLayer(container) {
       style="background: radial-gradient(circle at 50% 40%, rgba(255,255,255,1) 0%, rgba(248,249,250,0.98) 100%);"
     >
       <!-- Discreet Top Contact Strip -->
-      <header class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between z-10">
+      <header id="intro-header" class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between z-10 opacity-0 transition-opacity duration-1000 ease-out delay-500">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-lg bg-[#141414] flex items-center justify-center text-white font-black text-sm">C</div>
           <span class="font-extrabold text-sm tracking-tight text-[#141414]">The Comboni Grand Tower</span>
@@ -54,7 +54,7 @@ export function renderIntroLayer(container) {
           <div class="flex items-baseline justify-center overflow-hidden py-1">
             ${brandName.split('').map((char, i) => `
               <span 
-                class="brand-char inline-block text-6xl sm:text-8xl md:text-9xl font-black tracking-tight text-[#141414] opacity-0 transform translate-y-12 filter blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                class="brand-char inline-block text-5xl sm:text-7xl md:text-9xl font-black tracking-tight text-[#141414] opacity-0 transform translate-y-12 filter blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style="transition-delay: ${150 + i * 80}ms; letter-spacing: 0.05em;"
               >
                 ${char}
@@ -66,7 +66,7 @@ export function renderIntroLayer(container) {
           <div class="flex items-baseline justify-center overflow-hidden py-1 mt-1">
             ${subBrand.split('').map((char, i) => `
               <span 
-                class="brand-subchar inline-block text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-[0.25em] text-gray-400 opacity-0 transform translate-y-8 filter blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                class="brand-subchar inline-block text-lg sm:text-3xl md:text-5xl font-extrabold tracking-[0.25em] text-gray-400 opacity-0 transform translate-y-8 filter blur-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style="transition-delay: ${650 + i * 50}ms;"
               >
                 ${char === ' ' ? '&nbsp;' : char}
@@ -101,8 +101,8 @@ export function renderIntroLayer(container) {
       </main>
 
       <!-- Bottom Minimalist Strip: "Robel's Agent Desk" located in footer -->
-      <footer class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between text-[11px] text-gray-400 z-10">
-        <span>Bole Atlas, Cameroon St, Addis Ababa</span>
+      <footer id="intro-footer" class="w-full max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-gray-400 z-10 opacity-0 transition-opacity duration-1000 ease-out delay-[1500ms]">
+        <span class="text-center sm:text-left">Bole Atlas, Cameroon St, Addis Ababa</span>
         
         <!-- Robel's Agent Desk button moved to footer as requested -->
         <button 
@@ -130,6 +130,12 @@ export function renderIntroLayer(container) {
     if (tagline) tagline.classList.remove('opacity-0', 'translate-y-4');
     const cta = container.querySelector('#intro-cta-wrapper');
     if (cta) cta.classList.remove('opacity-0', 'translate-y-6');
+    
+    const header = container.querySelector('#intro-header');
+    if (header) header.classList.remove('opacity-0');
+    
+    const footer = container.querySelector('#intro-footer');
+    if (footer) footer.classList.remove('opacity-0');
   }, 50);
 
   let isSliding = false;

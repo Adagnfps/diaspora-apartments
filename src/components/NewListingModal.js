@@ -356,7 +356,7 @@ export function renderNewListingModal(container) {
 
   // Close handlers
   const closeModal = () => appStore.toggleNewListingModal(false);
-  container.querySelector('#close-new-listing').addEventListener('click', closeModal);
+  container.querySelector('#close-listing-modal').addEventListener('click', closeModal);
   container.querySelector('#cancel-new-listing').addEventListener('click', closeModal);
 
   // Form submit

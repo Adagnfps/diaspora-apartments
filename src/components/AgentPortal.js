@@ -15,10 +15,13 @@ export function renderAgentPortal(container) {
   ];
 
   container.innerHTML = `
-    <div class="min-h-screen bg-[#f8f9fa] text-slate-800 flex font-sans select-none">
+    <div class="min-h-screen bg-[#f8f9fa] text-slate-800 flex font-sans select-none relative">
       
+      <!-- Overlay for mobile sidebar -->
+      <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden lg:hidden opacity-0 transition-opacity duration-300"></div>
+
       <!-- Left CRM Sidebar (Matching Screenshot Exactly) -->
-      <aside class="w-64 bg-white border-r border-slate-200/90 hidden lg:flex flex-col justify-between py-5 px-4 shrink-0 shadow-xs">
+      <aside id="agent-sidebar" class="w-64 bg-white border-r border-slate-200/90 flex-col justify-between py-5 px-4 shrink-0 shadow-xs fixed lg:static inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex">
         <div class="space-y-6">
           
           <!-- Top Brand & Agent Selector matching screenshot -->
@@ -163,10 +166,10 @@ export function renderAgentPortal(container) {
       <main class="flex-grow overflow-x-hidden flex flex-col min-h-screen">
         
         <!-- Top Search Bar matching Screenshot -->
-        <header class="bg-white border-b border-slate-200/90 px-6 py-3 flex items-center justify-between gap-4 sticky top-0 z-30 shadow-2xs">
+        <header class="bg-white border-b border-slate-200/90 px-4 sm:px-6 py-3 flex items-center justify-between gap-2 sm:gap-4 sticky top-0 z-30 shadow-2xs">
           
           <!-- Search input -->
-          <div class="w-full max-w-md relative">
+          <div class="flex-1 min-w-[100px] max-w-md relative">
             <input 
               type="text" 
               placeholder="Search by client, phone or property ID" 
@@ -179,7 +182,7 @@ export function renderAgentPortal(container) {
           <div class="flex items-center gap-3">
             
             <!-- Country Selector matching screenshot -->
-            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 bg-white">
+            <div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 bg-white">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
               <span>Ethiopia</span>
               <svg class="w-3 h-3 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -191,17 +194,17 @@ export function renderAgentPortal(container) {
             </button>
 
             <!-- Menu icon -->
-            <button class="w-8 h-8 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 flex items-center justify-center text-xs">
+            <button id="mobile-menu-btn" class="lg:hidden w-8 h-8 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 flex items-center justify-center text-xs">
               ···
             </button>
 
             <!-- Post New Listing Button -->
             <button 
               id="open-new-listing-btn" 
-              class="px-4 py-2 rounded-xl bg-[#141414] hover:bg-black text-white font-bold text-xs transition shadow-sm flex items-center gap-1.5"
+              class="px-3 sm:px-4 py-2 rounded-xl bg-[#141414] hover:bg-black text-white font-bold text-xs transition shadow-sm flex items-center gap-1.5 shrink-0"
             >
               <span>+</span>
-              <span>Post New Listing</span>
+              <span class="hidden sm:inline">Post New Listing</span>
             </button>
           </div>
         </header>
@@ -310,12 +313,12 @@ export function renderAgentPortal(container) {
           </div>
 
           <!-- Action Toolbar matching Screenshot -->
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             
             <!-- Left: + New Deals & View Switcher -->
             <div class="flex items-center gap-3">
               <button id="post-listing-secondary" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 hover:bg-slate-50 transition flex items-center gap-1.5 shadow-2xs">
-                <span>+</span> New Deals
+                <span>+</span> <span class="hidden sm:inline">New Deals</span>
               </button>
 
               <!-- View switchers (Kanban, Grid, List) -->
@@ -341,11 +344,11 @@ export function renderAgentPortal(container) {
           </div>
 
           <!-- Kanban Pipeline Columns matching Screenshot -->
-          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-start">
+          <div class="flex flex-nowrap md:grid md:grid-cols-2 xl:grid-cols-4 overflow-x-auto md:overflow-visible pb-6 md:pb-0 snap-x md:snap-none gap-5 items-start">
             ${stages.map(stage => {
               const stageDeals = getStageDeals(stage.key);
               return `
-                <div class="bg-[#f0f2f5]/80 rounded-2xl p-4 border border-slate-200/80 flex flex-col space-y-3">
+                <div class="bg-[#f0f2f5]/80 rounded-2xl p-4 border border-slate-200/80 flex flex-col space-y-3 w-[85vw] md:w-auto shrink-0 md:shrink snap-center md:snap-align-none">
                   
                   <!-- Column Header matching Screenshot -->
                   <div class="flex items-center justify-between px-1">
@@ -501,4 +504,25 @@ export function renderAgentPortal(container) {
       appStore.moveDeal(dealId, newStage);
     });
   });
+
+  // Mobile sidebar toggle
+  const sidebar = container.querySelector('#agent-sidebar');
+  const overlay = container.querySelector('#sidebar-overlay');
+  const menuBtn = container.querySelector('#mobile-menu-btn');
+
+  const openSidebar = () => {
+    sidebar.classList.remove('-translate-x-full');
+    overlay.classList.remove('hidden');
+    // slight delay for opacity transition
+    setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+  };
+
+  const closeSidebar = () => {
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('opacity-0');
+    setTimeout(() => overlay.classList.add('hidden'), 300);
+  };
+
+  if (menuBtn) menuBtn.addEventListener('click', openSidebar);
+  if (overlay) overlay.addEventListener('click', closeSidebar);
 }

@@ -52,6 +52,14 @@ export function initMarketplaceMap(containerId) {
 
   updateMapMarkers();
 
+  if (!container.dataset.roObserved && window.ResizeObserver) {
+    const ro = new ResizeObserver(() => {
+      if (mapInstance) mapInstance.invalidateSize();
+    });
+    ro.observe(container);
+    container.dataset.roObserved = 'true';
+  }
+
   setTimeout(() => {
     if (mapInstance) {
       mapInstance.invalidateSize();

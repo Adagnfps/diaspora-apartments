@@ -182,32 +182,6 @@ export function renderPropertyModal(container, propertyId) {
               </div>
             </div>
           </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="p-3.5 rounded-xl bg-gray-50 border border-gray-100">
-                <span class="text-[11px] text-gray-400 font-medium">10% Initial Deposit</span>
-                <p class="text-lg font-black text-[#141414] mt-1">
-                  ${((prop.priceETB * 0.10) / 1000000).toFixed(1)}M ETB
-                </p>
-                <span class="text-[10px] text-emerald-600 font-bold">Secures Unit</span>
-              </div>
-              
-              <div class="p-3.5 rounded-xl bg-gray-50 border border-gray-100">
-                <span class="text-[11px] text-gray-400 font-medium">60% Structural Completion</span>
-                <p class="text-lg font-black text-[#141414] mt-1">
-                  ${((prop.priceETB * 0.60) / 1000000).toFixed(1)}M ETB
-                </p>
-                <span class="text-[10px] text-gray-500">Paid across fit-out phases</span>
-              </div>
-
-              <div class="p-3.5 rounded-xl bg-gray-50 border border-gray-100">
-                <span class="text-[11px] text-gray-400 font-medium">30% Final Key & Carta Handover</span>
-                <p class="text-lg font-black text-emerald-700 mt-1">
-                  ${((prop.priceETB * 0.30) / 1000000).toFixed(1)}M ETB
-                </p>
-                <span class="text-[10px] text-gray-500">Official title transfer</span>
-              </div>
-            </div>
-          </div>
 
           <!-- Contact & Offer Buttons -->
           <div class="space-y-3 pt-2">

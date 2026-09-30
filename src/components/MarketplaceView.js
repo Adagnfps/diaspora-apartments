@@ -31,9 +31,9 @@ export function renderMarketplace(container) {
                 <span class="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight">
                   Addis Ababa, Bole Atlas
                 </span>
-                <span class="text-xs text-slate-500 font-medium">Residences For Sale</span>
+                <span class="text-xs text-slate-500 font-medium hidden sm:inline">Residences For Sale</span>
               </div>
-              <p class="text-[10px] text-slate-500 font-semibold">
+              <p class="text-[10px] text-slate-500 font-semibold hidden sm:block">
                 The Comboni Grand Tower • 18 Luxury Residences
               </p>
             </div>
@@ -128,22 +128,23 @@ export function renderMarketplace(container) {
       <div class="flex-grow flex flex-col md:flex-row overflow-hidden relative">
         
         <!-- Left Half (50%): Full Height Interactive Map -->
-        <div class="w-full md:w-1/2 h-64 md:h-full relative shrink-0 border-r border-slate-200">
+        <div class="w-full md:w-1/2 h-[40vh] md:h-full relative shrink-0 border-b md:border-b-0 md:border-r border-slate-200">
           <div id="marketplace-map-container" class="w-full h-full"></div>
 
           <!-- Bottom Map Landmark Badge -->
           <div class="absolute bottom-4 left-4 z-[400] bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-lg border border-slate-200 text-xs flex items-center gap-3">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-slate-950 animate-pulse"></span>
-              <span class="font-black text-slate-900">The Comboni Grand Tower</span>
+              <span class="font-black text-slate-900 hidden sm:inline">The Comboni Grand Tower</span>
+              <span class="font-black text-slate-900 sm:hidden">Comboni Tower</span>
             </div>
-            <span class="text-slate-400">|</span>
-            <span class="text-[11px] text-slate-600 font-semibold">Cameroon St, Bole Atlas</span>
+            <span class="text-slate-400 hidden sm:inline">|</span>
+            <span class="text-[11px] text-slate-600 font-semibold hidden sm:inline">Cameroon St, Bole Atlas</span>
           </div>
         </div>
 
         <!-- Right Half (50%): Scrollable Customer Listings Grid -->
-        <div id="marketplace-right-pane" class="w-full md:w-1/2 h-full overflow-y-auto p-4 sm:p-5 bg-[#fafafa] flex flex-col space-y-4">
+        <div id="marketplace-right-pane" class="w-full md:w-1/2 flex-1 md:h-full overflow-y-auto p-4 sm:p-5 bg-[#fafafa] flex flex-col space-y-4">
           
           <div class="flex items-center justify-between px-1">
             <div class="flex items-center gap-2">
