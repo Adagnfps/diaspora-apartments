@@ -23,18 +23,18 @@ export function renderPropertyModal(container, propertyId) {
 
   container.innerHTML = `
     <div class="fixed inset-0 z-[99999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6">
-      <div class="relative bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] shadow-2xl border border-gray-200 text-[#141414] z-[100000]">
+      <div class="relative flex flex-col w-full max-w-4xl max-h-[92vh] bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden z-[100000]">
         
         <!-- Close Button -->
         <button 
           id="close-prop-modal" 
-          class="absolute top-4 right-4 sm:top-6 sm:right-6 z-[100001] w-10 h-10 rounded-full btn-glass-light flex items-center justify-center text-[#141414]"
+          class="absolute top-4 right-4 sm:top-6 sm:right-6 z-[100001] w-10 h-10 rounded-full bg-white/80 backdrop-blur hover:bg-white flex items-center justify-center text-[#141414] shadow-sm transition-all"
         >
           ✕
         </button>
 
         <!-- Scrollable Content -->
-        <div class="overflow-y-auto no-scrollbar w-full max-h-[92vh] rounded-3xl">
+        <div class="flex-1 min-h-0 overflow-y-auto no-scrollbar w-full">
           <!-- Top Gallery -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-2 p-3 bg-gray-50 rounded-t-3xl border-b border-gray-100">
           <div class="md:col-span-2 h-72 sm:h-96 rounded-2xl overflow-hidden relative bg-gray-100">
