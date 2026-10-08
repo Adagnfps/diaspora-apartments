@@ -31,12 +31,14 @@ let previousView = null;
 let previousCurrency = null;
 let previousFilterSnapshot = '';
 let previousDealsCount = -1;
+let previousAgentTab = null;
 
 function renderApp() {
   const currentView = appStore.activeView;
   const currentCurrency = appStore.currency;
   const currentFilterSnapshot = JSON.stringify(appStore.filters) + '_' + appStore.properties.length;
-  const currentDealsCount = appStore.deals.length + '_' + appStore.metrics.offersSent;
+  const currentDealsCount = appStore.deals.length + '_' + appStore.metrics.offersSent + '_' + appStore.deals.map(d => d.stage).join('-');
+  const currentAgentTab = appStore.activeAgentTab;
 
   // Sync hash
   if (currentView === 'agent-portal' && window.location.hash !== '#agent') {
@@ -49,7 +51,8 @@ function renderApp() {
     previousView !== currentView || 
     previousCurrency !== currentCurrency || 
     previousFilterSnapshot !== currentFilterSnapshot || 
-    previousDealsCount !== currentDealsCount;
+    previousDealsCount !== currentDealsCount ||
+    previousAgentTab !== currentAgentTab;
 
   if (needsUpdate) {
     const isViewChange = previousView !== null && previousView !== currentView;
@@ -58,6 +61,7 @@ function renderApp() {
     previousCurrency = currentCurrency;
     previousFilterSnapshot = currentFilterSnapshot;
     previousDealsCount = currentDealsCount;
+    previousAgentTab = currentAgentTab;
 
     if (isViewChange) {
       // Animated transition: fade-out old view, then render + fade-in new view

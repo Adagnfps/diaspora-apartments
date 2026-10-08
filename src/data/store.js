@@ -15,8 +15,22 @@ class Store {
     this.deals = this.load(STORAGE_KEYS.DEALS, INITIAL_DEALS);
     this.metrics = { ...PIPELINE_METRICS };
     this.currency = this.load(STORAGE_KEYS.CURRENCY, 'ETB');
+    
+    this.tasks = this.load('comboni_tasks_v3', [
+      { id: 1, task: 'Prepare title deed transfer for Unit 12B', due: 'Today, 2:00 PM', priority: 'High', type: 'Legal', completed: false },
+      { id: 2, task: 'Call Sarah regarding the 2-bed layout options', due: 'Today, 4:30 PM', priority: 'Medium', type: 'Follow Up', completed: false },
+      { id: 3, task: 'Site visit with Diaspora investor group', due: 'Tomorrow, 10:00 AM', priority: 'High', type: 'Viewing', completed: false },
+      { id: 4, task: 'Review Q2 marketing collateral', due: 'Friday, 5:00 PM', priority: 'Low', type: 'Internal', completed: false },
+    ]);
+
+    this.messages = this.load('comboni_messages_v3', [
+      { sender: 'Yohannes T.', time: '10:42 AM', text: 'Hi, I\'m interested in the 3-bedroom units. Is the 5th floor unit still available?', isMine: false },
+      { sender: 'Me', time: '10:45 AM', text: 'Hello Yohannes! Yes, Unit 5 is currently available. It has a beautiful Addis skyline view. Would you like to schedule a virtual tour?', isMine: true }
+    ]);
+
     this.showIntro = true; // Layer before the marketplace!
     this.activeView = 'marketplace'; // Underlying view is marketplace
+    this.activeAgentTab = 'deals'; // Active tab in the agent portal
     
     this.favorites = new Set(this.load(STORAGE_KEYS.FAVORITES, []));
     this.activePropertyId = null;
@@ -69,6 +83,31 @@ class Store {
 
   setView(view) {
     this.activeView = view;
+    this.notify();
+  }
+
+  setAgentTab(tab) {
+    this.activeAgentTab = tab;
+    this.notify();
+  }
+
+  toggleTask(id) {
+    const task = this.tasks.find(t => t.id === id);
+    if (task) {
+      task.completed = !task.completed;
+      this.save('comboni_tasks_v3', this.tasks);
+      this.notify();
+    }
+  }
+
+  addMessage(text) {
+    this.messages.push({
+      sender: 'Me',
+      time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+      text: text,
+      isMine: true
+    });
+    this.save('comboni_messages_v3', this.messages);
     this.notify();
   }
 
