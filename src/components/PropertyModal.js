@@ -22,18 +22,20 @@ export function renderPropertyModal(container, propertyId) {
     : `≈ ${(prop.priceETB / 1000000).toFixed(1)}M ETB`;
 
   container.innerHTML = `
-    <div class="fixed inset-0 z-[99999] overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6">
-      <div class="relative bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-gray-200 text-[#141414] z-[100000]">
+    <div class="fixed inset-0 z-[99999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6">
+      <div class="relative bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] shadow-2xl border border-gray-200 text-[#141414] z-[100000]">
         
         <!-- Close Button -->
         <button 
           id="close-prop-modal" 
-          class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full btn-glass-light flex items-center justify-center text-[#141414]"
+          class="absolute top-4 right-4 sm:top-6 sm:right-6 z-[100001] w-10 h-10 rounded-full btn-glass-light flex items-center justify-center text-[#141414]"
         >
           ✕
         </button>
 
-        <!-- Top Gallery -->
+        <!-- Scrollable Content -->
+        <div class="overflow-y-auto no-scrollbar w-full max-h-[92vh] rounded-3xl">
+          <!-- Top Gallery -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-2 p-3 bg-gray-50 rounded-t-3xl border-b border-gray-100">
           <div class="md:col-span-2 h-72 sm:h-96 rounded-2xl overflow-hidden relative bg-gray-100">
             <img src="${prop.images[0]}" alt="${prop.title}" class="w-full h-full object-cover"/>
@@ -215,6 +217,7 @@ export function renderPropertyModal(container, propertyId) {
             </div>
           </div>
 
+        </div>
         </div>
       </div>
     </div>
