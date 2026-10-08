@@ -91,7 +91,7 @@ export function renderIntroLayer(container) {
         >
           <button 
             id="intro-browse-btn" 
-            class="group px-10 py-5 rounded-2xl bg-[#141414] hover:bg-black text-white font-bold text-base transition-all duration-300 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] flex items-center gap-3 transform hover:scale-[1.03] active:scale-95 border border-black"
+            class="btn-glass-dark group px-10 py-5 text-base flex items-center gap-3"
           >
             <span>Browse 18 Tower Residences</span>
             <span class="text-lg transition-transform group-hover:translate-x-1.5">→</span>

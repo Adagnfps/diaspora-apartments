@@ -26,7 +26,7 @@ export function renderMakeOfferModal(container) {
             <h2 class="text-xl sm:text-2xl font-black text-[#141414] mt-1">Make an Offer</h2>
             <p class="text-xs text-gray-500">${prop.title} • ${prop.floor}</p>
           </div>
-          <button id="close-offer-modal" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center text-sm font-bold">
+          <button id="close-offer-modal" class="w-9 h-9 rounded-full btn-glass-light flex items-center justify-center text-sm font-bold">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
@@ -87,7 +87,7 @@ export function renderMakeOfferModal(container) {
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="text-xs font-bold text-gray-700 block mb-1">Buyer Location</label>
-              <select id="offer-location" class="w-full text-xs font-medium bg-white border border-gray-300 rounded-xl p-3 text-[#141414]">
+              <select id="offer-location" class="select-glass w-full">
                 <option value="US Diaspora">United States (Diaspora)</option>
                 <option value="UK / Europe Diaspora">UK & Europe (Diaspora)</option>
                 <option value="Canada Diaspora">Canada (Diaspora)</option>
@@ -99,7 +99,7 @@ export function renderMakeOfferModal(container) {
 
             <div>
               <label class="text-xs font-bold text-gray-700 block mb-1">Financing / Payment Method</label>
-              <select id="offer-payment" class="w-full text-xs font-medium bg-white border border-gray-300 rounded-xl p-3 text-[#141414]">
+              <select id="offer-payment" class="select-glass w-full">
                 <option value="CBE Diaspora FX Escrow">CBE Diaspora FX Escrow</option>
                 <option value="Awash Foreign Currency Wire">Awash Bank FX Wire</option>
                 <option value="Milestone Installments (25/45/30)">Milestone Installments (25/45/30)</option>
@@ -113,13 +113,13 @@ export function renderMakeOfferModal(container) {
             <button 
               type="button" 
               id="cancel-offer-btn"
-              class="px-5 py-3 rounded-xl border border-gray-200 text-xs font-bold text-gray-700 hover:bg-gray-50 transition"
+              class="btn-glass-light px-5 py-3 text-xs"
             >
               Cancel
             </button>
             <button 
               type="submit" 
-              class="px-7 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition hover:scale-[1.02] active:scale-95"
+              class="btn-glass-emerald px-7 py-3 text-xs flex items-center gap-2"
             >
               <span>Submit Official Offer</span>
               <span>→</span>

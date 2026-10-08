@@ -28,7 +28,7 @@ export function renderPropertyModal(container, propertyId) {
         <!-- Close Button -->
         <button 
           id="close-prop-modal" 
-          class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-white border border-gray-200 text-[#141414] flex items-center justify-center transition shadow-sm"
+          class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full btn-glass-light flex items-center justify-center text-[#141414]"
         >
           ✕
         </button>

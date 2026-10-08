@@ -86,7 +86,7 @@ export function createListingCard(prop) {
       <div class="flex items-center gap-2 pt-1">
         <!-- Trusting Green Make an Offer Button -->
         <button 
-          class="card-make-offer-btn w-1/2 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold transition flex items-center justify-center gap-1.5 hover:scale-[1.02] active:scale-95 shadow-sm"
+          class="card-make-offer-btn btn-glass-emerald w-1/2 py-2.5 px-3 text-[11px] flex items-center justify-center gap-1.5 shadow-sm"
         >
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
           Make an Offer
@@ -94,7 +94,7 @@ export function createListingCard(prop) {
 
         <!-- Facebook Blue Inspect Unit Button -->
         <button 
-          class="card-view-btn w-1/2 py-2.5 px-3 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] text-white text-[11px] font-bold transition flex items-center justify-center gap-1 hover:scale-[1.02] active:scale-95 shadow-sm"
+          class="card-view-btn btn-glass-blue w-1/2 py-2.5 px-3 text-[11px] flex items-center justify-center gap-1 shadow-sm"
         >
           <span>Inspect Unit</span> →
         </button>

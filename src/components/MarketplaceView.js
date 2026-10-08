@@ -42,34 +42,33 @@ export function renderMarketplace(container) {
           <!-- Middle Filter Toolbar -->
           <div class="flex items-center gap-2 shrink-0">
             
-            <button class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5 hover:scale-[1.02] active:scale-95">
+            <button class="btn-glass-light px-3 py-1.5 text-xs flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
               Filter
             </button>
-            <button class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5 hover:scale-[1.02] active:scale-95">
+            <button class="btn-glass-light px-3 py-1.5 text-xs flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
               Sort
             </button>
 
             <!-- Status Dropdown -->
-            <select id="filter-status" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white/80 text-xs font-semibold text-slate-800">
-              <option value="all">For Sale ▾</option>
+            <select id="filter-status" class="select-glass select-glass-sm">
+              <option value="all">For Sale</option>
               <option value="70">70% Shell Ready</option>
               <option value="carta">Carta Guaranteed</option>
             </select>
 
             <!-- Price Dropdown -->
-            <select id="filter-price" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white/80 text-xs font-semibold text-slate-800">
-              <option value="65000000">Price: Any ▾</option>
+            <select id="filter-price" class="select-glass select-glass-sm">
+              <option value="65000000">Price: Any</option>
               <option value="45000000">Under 45M ETB</option>
               <option value="50000000">Under 50M ETB</option>
               <option value="55000000">Under 55M ETB</option>
-              <option value="65000000">Above 55M ETB</option>
             </select>
 
             <!-- Beds Dropdown -->
-            <select id="filter-beds" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white/80 text-xs font-semibold text-slate-800">
-              <option value="all">Beds & Baths ▾</option>
+            <select id="filter-beds" class="select-glass select-glass-sm">
+              <option value="all">Beds & Baths</option>
               <option value="2">2 Bedrooms</option>
               <option value="3">3 Bedrooms</option>
               <option value="4">4 Bedrooms</option>
@@ -77,8 +76,8 @@ export function renderMarketplace(container) {
             </select>
 
             <!-- Floor Dropdown -->
-            <select id="filter-floor" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white/80 text-xs font-semibold text-slate-800">
-              <option value="all">Tower Floor ▾</option>
+            <select id="filter-floor" class="select-glass select-glass-sm">
+              <option value="all">Tower Floor</option>
               <option value="2">Floor 2 (Garden Terrace)</option>
               <option value="3">Floor 3</option>
               <option value="4">Floor 4</option>
@@ -91,7 +90,7 @@ export function renderMarketplace(container) {
             </select>
 
             <!-- Save Search -->
-            <button id="save-search-btn" class="px-4 py-1.5 rounded-xl bg-slate-950 hover:bg-black text-white font-bold text-xs transition shrink-0 hover:scale-[1.02] active:scale-95 shadow-xs">
+            <button id="save-search-btn" class="btn-glass-dark px-4 py-1.5 text-xs shrink-0 shadow-xs">
               Save Search
             </button>
           </div>
@@ -178,7 +177,7 @@ export function renderMarketplace(container) {
                 <svg class="w-10 h-10 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               </p>
               <p class="font-bold text-sm">No residences match your current filters</p>
-              <button id="reset-marketplace-filters" class="px-4 py-2 rounded-xl bg-slate-950 text-white font-bold text-xs">
+              <button id="reset-marketplace-filters" class="btn-glass-dark px-4 py-2 text-xs">
                 Reset Filters
               </button>
             </div>

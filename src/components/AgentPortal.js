@@ -155,7 +155,7 @@ export function renderAgentPortal(container) {
 
         <!-- Return to Public Marketplace Button -->
         <div class="pt-4 border-t border-slate-200">
-          <button id="agent-return-market-btn" class="w-full py-2.5 px-3 rounded-xl bg-slate-900 text-white hover:bg-black text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+          <button id="agent-return-market-btn" class="btn-glass-dark w-full py-2.5 px-3 text-xs font-bold flex items-center justify-center gap-2">
             <span>←</span>
             <span>Public Marketplace</span>
           </button>
@@ -189,19 +189,19 @@ export function renderAgentPortal(container) {
             </div>
 
             <!-- Bell Notification -->
-            <button class="w-8 h-8 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 flex items-center justify-center text-xs">
+            <button class="w-8 h-8 rounded-xl btn-glass-light flex items-center justify-center text-xs">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
             </button>
 
             <!-- Menu icon -->
-            <button id="mobile-menu-btn" class="lg:hidden w-8 h-8 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 flex items-center justify-center text-xs">
+            <button id="mobile-menu-btn" class="lg:hidden w-8 h-8 rounded-xl btn-glass-light flex items-center justify-center text-xs">
               ···
             </button>
 
             <!-- Post New Listing Button -->
             <button 
               id="open-new-listing-btn" 
-              class="px-3 sm:px-4 py-2 rounded-xl bg-[#141414] hover:bg-black text-white font-bold text-xs transition shadow-sm flex items-center gap-1.5 shrink-0"
+              class="btn-glass-dark px-3 sm:px-4 py-2 text-xs font-bold flex items-center gap-1.5 shrink-0"
             >
               <span>+</span>
               <span class="hidden sm:inline">Post New Listing</span>
@@ -229,7 +229,7 @@ export function renderAgentPortal(container) {
                 </div>
               </div>
 
-              <button class="px-3.5 py-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-xs font-semibold text-slate-700 transition flex items-center gap-1.5 shadow-2xs">
+              <button class="btn-glass-light px-3.5 py-1.5 text-xs font-semibold flex items-center gap-1.5">
                 <span>+</span> Invite Member
               </button>
             </div>
@@ -317,7 +317,7 @@ export function renderAgentPortal(container) {
             
             <!-- Left: + New Deals & View Switcher -->
             <div class="flex items-center gap-3">
-              <button id="post-listing-secondary" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 hover:bg-slate-50 transition flex items-center gap-1.5 shadow-2xs">
+              <button id="post-listing-secondary" class="btn-glass-light px-4 py-2 text-xs font-bold flex items-center gap-1.5">
                 <span>+</span> <span class="hidden sm:inline">New Deals</span>
               </button>
 
@@ -331,11 +331,11 @@ export function renderAgentPortal(container) {
 
             <!-- Right: Sort and Filter buttons -->
             <div class="flex items-center gap-2">
-              <button class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5 shadow-2xs">
+              <button class="btn-glass-light px-3.5 py-2 text-xs font-semibold flex items-center gap-1.5">
                 <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
                 Sort
               </button>
-              <button class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5 shadow-2xs">
+              <button class="btn-glass-light px-3.5 py-2 text-xs font-semibold flex items-center gap-1.5">
                 <svg class="w-3.5 h-3.5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
                 Filter
               </button>
@@ -457,7 +457,7 @@ export function renderAgentPortal(container) {
                           <span class="text-[9px] font-bold text-slate-400 uppercase">Stage:</span>
                           <select 
                             data-deal-id="${deal.id}" 
-                            class="pipeline-stage-select text-[10px] font-bold bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-slate-800 focus:ring-1 focus:ring-slate-900"
+                            class="select-glass pipeline-stage-select text-[10px] font-bold px-2 py-1"
                           >
                             <option value="new" ${deal.stage === 'new' ? 'selected' : ''}>New</option>
                             <option value="viewing" ${deal.stage === 'viewing' ? 'selected' : ''}>Viewing Scheduled</option>

@@ -39,7 +39,7 @@ export function renderNewListingModal(container) {
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">Post New Apartment Listing</h2>
             <p class="text-xs text-slate-500">Capture 70% finished building photos, upload floor plans, and tag site coordinates</p>
           </div>
-          <button id="close-listing-modal" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-sm font-bold">
+          <button id="close-listing-modal" class="w-9 h-9 rounded-full btn-glass-light flex items-center justify-center text-sm font-bold">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
@@ -103,7 +103,7 @@ export function renderNewListingModal(container) {
             <!-- Remote Map Picker Box (Hidden by default) -->
             <div id="remote-box" class="hidden p-4 rounded-xl bg-white border border-slate-200 space-y-3">
               <label class="text-xs font-bold text-slate-700">Select Addis Ababa Subcity / Landmark:</label>
-              <select id="remote-neighborhood-select" class="w-full text-xs font-medium bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-slate-800">
+              <select id="remote-neighborhood-select" class="select-glass w-full">
                 ${ADDIS_NEIGHBORHOODS.map((n, i) => `
                   <option value="${i}">${n.name} (${n.full})</option>
                 `).join('')}
@@ -228,13 +228,13 @@ export function renderNewListingModal(container) {
               <div>
                 <label class="text-xs font-bold text-slate-700">Bedrooms & Bathrooms</label>
                 <div class="grid grid-cols-2 gap-2 mt-1">
-                  <select id="prop-bedrooms" class="text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl p-3">
+                  <select id="prop-bedrooms" class="select-glass w-full">
                     <option value="2">2 Bedrooms</option>
                     <option value="3" selected>3 Bedrooms</option>
                     <option value="4">4 Bedrooms</option>
                     <option value="5">5 Bedrooms (Penthouse)</option>
                   </select>
-                  <select id="prop-bathrooms" class="text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl p-3">
+                  <select id="prop-bathrooms" class="select-glass w-full">
                     <option value="2">2 Baths</option>
                     <option value="2.5" selected>2.5 Baths</option>
                     <option value="3">3 Baths</option>
@@ -262,13 +262,13 @@ export function renderNewListingModal(container) {
             <button 
               type="button" 
               id="cancel-new-listing" 
-              class="btn-animate w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 text-slate-700 text-xs font-bold hover:bg-slate-100 transition"
+              class="btn-glass-light px-5 py-3 text-xs font-bold w-full sm:w-auto"
             >
               Cancel
             </button>
             <button 
               type="submit" 
-              class="btn-animate w-full sm:w-auto px-8 py-3 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-black transition shadow-sm flex items-center justify-center gap-2"
+              class="btn-glass-emerald px-8 py-3 text-xs font-black w-full sm:w-auto flex items-center justify-center gap-2"
             >
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
               Publish Unit to The Tower

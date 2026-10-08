@@ -52,20 +52,43 @@ function renderApp() {
     previousDealsCount !== currentDealsCount;
 
   if (needsUpdate) {
-    if (previousView !== currentView) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      appEl.className = 'w-full min-h-screen page-fade-in';
-    }
+    const isViewChange = previousView !== null && previousView !== currentView;
 
     previousView = currentView;
     previousCurrency = currentCurrency;
     previousFilterSnapshot = currentFilterSnapshot;
     previousDealsCount = currentDealsCount;
 
-    if (currentView === 'marketplace') {
-      renderMarketplace(appEl);
-    } else if (currentView === 'agent-portal') {
-      renderAgentPortal(appEl);
+    if (isViewChange) {
+      // Animated transition: fade-out old view, then render + fade-in new view
+      appEl.classList.remove('page-fade-in');
+      appEl.classList.add('page-fade-out');
+
+      const renderNext = () => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        appEl.classList.remove('page-fade-out');
+        if (currentView === 'marketplace') {
+          renderMarketplace(appEl);
+        } else if (currentView === 'agent-portal') {
+          renderAgentPortal(appEl);
+        }
+        // Force reflow then apply entrance animation
+        void appEl.offsetWidth;
+        appEl.className = 'w-full min-h-screen page-fade-in';
+      };
+
+      // Wait for exit animation to complete (250ms matches CSS)
+      setTimeout(renderNext, 250);
+    } else {
+      // First load or data-only update — no exit animation needed
+      if (currentView === 'marketplace') {
+        renderMarketplace(appEl);
+      } else if (currentView === 'agent-portal') {
+        renderAgentPortal(appEl);
+      }
+      if (!appEl.classList.contains('page-fade-in')) {
+        appEl.className = 'w-full min-h-screen page-fade-in';
+      }
     }
   }
 
