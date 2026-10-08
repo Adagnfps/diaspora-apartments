@@ -50,10 +50,10 @@ export function renderNewListingModal(container) {
           <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <label class="text-xs font-black uppercase text-slate-900 tracking-wider flex items-center gap-1.5">
+                <h3 class="text-xs font-black uppercase text-slate-900 tracking-wider flex items-center gap-1.5">
                   <svg class="w-4 h-4 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                   1. Property Location & Geotagging
-                </label>
+                </h3>
                 <p class="text-xs text-slate-500">Choose how the property location is determined</p>
               </div>
 
@@ -102,8 +102,8 @@ export function renderNewListingModal(container) {
 
             <!-- Remote Map Picker Box (Hidden by default) -->
             <div id="remote-box" class="hidden p-4 rounded-xl bg-white border border-slate-200 space-y-3">
-              <label class="text-xs font-bold text-slate-700">Select Addis Ababa Subcity / Landmark:</label>
-              <select id="remote-neighborhood-select" class="select-glass w-full">
+              <label class="text-xs font-bold text-slate-700" for="remote-neighborhood-select">Select Addis Ababa Subcity / Landmark:</label>
+              <select id="remote-neighborhood-select" name="remote-neighborhood-select" class="select-glass w-full">
                 ${ADDIS_NEIGHBORHOODS.map((n, i) => `
                   <option value="${i}">${n.name} (${n.full})</option>
                 `).join('')}
@@ -117,10 +117,10 @@ export function renderNewListingModal(container) {
           <!-- STEP 2: Required Photos & Floor Plan Uploads -->
           <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
             <div>
-              <label class="text-xs font-black uppercase text-slate-900 tracking-wider flex items-center gap-1.5">
+              <h3 class="text-xs font-black uppercase text-slate-900 tracking-wider flex items-center gap-1.5">
                 <svg class="w-4 h-4 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                 2. Site Photos & Architectural Floor Plan
-              </label>
+              </h3>
               <p class="text-xs text-slate-500">Provide high-resolution photos of the building, 70% finished interior, and floor layout</p>
             </div>
 
@@ -131,10 +131,10 @@ export function renderNewListingModal(container) {
                 <span class="text-[11px] font-bold text-slate-700 block">1. Building Exterior</span>
                 <div class="h-32 rounded-lg overflow-hidden bg-slate-100 relative group">
                   <img id="preview-building" src="${uploadedBuildingImg}" class="w-full h-full object-cover"/>
-                  <label class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer text-white text-xs font-bold gap-1.5">
+                  <label for="upload-building" class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer text-white text-xs font-bold gap-1.5">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.92-5.26l-3.27 3.27"></path></svg>
                     Change Photo
-                    <input type="file" accept="image/*" class="hidden img-upload-input" data-target="building"/>
+                    <input type="file" id="upload-building" name="upload-building" accept="image/*" class="hidden img-upload-input" data-target="building"/>
                   </label>
                 </div>
                 <span class="text-[10px] text-slate-400 block text-center">Exterior facade & compound</span>
@@ -145,10 +145,10 @@ export function renderNewListingModal(container) {
                 <span class="text-[11px] font-bold text-slate-700 block">2. 70% Finished Interior</span>
                 <div class="h-32 rounded-lg overflow-hidden bg-slate-100 relative group">
                   <img id="preview-interior" src="${uploadedInteriorImg}" class="w-full h-full object-cover"/>
-                  <label class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer text-white text-xs font-bold gap-1.5">
+                  <label for="upload-interior" class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer text-white text-xs font-bold gap-1.5">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.92-5.26l-3.27 3.27"></path></svg>
                     Change Photo
-                    <input type="file" accept="image/*" class="hidden img-upload-input" data-target="interior"/>
+                    <input type="file" id="upload-interior" name="upload-interior" accept="image/*" class="hidden img-upload-input" data-target="interior"/>
                   </label>
                 </div>
                 <span class="text-[10px] text-slate-400 block text-center">Structure, walls & conduits</span>
@@ -159,10 +159,10 @@ export function renderNewListingModal(container) {
                 <span class="text-[11px] font-bold text-slate-700 block">3. Floor Plan Layout</span>
                 <div class="h-32 rounded-lg overflow-hidden bg-slate-100 relative group">
                   <img id="preview-floorplan" src="${uploadedFloorPlanImg}" class="w-full h-full object-cover"/>
-                  <label class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer text-white text-xs font-bold gap-1.5">
+                  <label for="upload-floorplan" class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer text-white text-xs font-bold gap-1.5">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                     Upload Plan
-                    <input type="file" accept="image/*" class="hidden img-upload-input" data-target="floorplan"/>
+                    <input type="file" id="upload-floorplan" name="upload-floorplan" accept="image/*" class="hidden img-upload-input" data-target="floorplan"/>
                   </label>
                 </div>
                 <span class="text-[10px] text-slate-400 block text-center">2D architectural blueprint</span>
@@ -173,17 +173,18 @@ export function renderNewListingModal(container) {
 
           <!-- STEP 3: Apartment Specifications & Pricing -->
           <div class="space-y-4">
-              <span class="font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
+              <h3 class="font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 3. Apartment Details & Diaspora Terms
-              </label>
+              </h3>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="text-xs font-bold text-slate-700">Tower Unit Title</label>
+                <label class="text-xs font-bold text-slate-700" for="prop-title">Tower Unit Title</label>
                 <input 
                   type="text" 
                   id="prop-title" 
+                  name="prop-title"
                   required 
                   value="Comboni Tower — Unit 302 (Executive Suite)" 
                   class="mt-1 w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 focus:ring-2 focus:ring-slate-900"
@@ -191,10 +192,11 @@ export function renderNewListingModal(container) {
               </div>
 
               <div>
-                <label class="text-xs font-bold text-slate-700">Subcity / Location</label>
+                <label class="text-xs font-bold text-slate-700" for="prop-neighborhood">Subcity / Location</label>
                 <input 
                   type="text" 
                   id="prop-neighborhood" 
+                  name="prop-neighborhood"
                   required 
                   value="Bole Atlas (Cameroon St)" 
                   class="mt-1 w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 focus:ring-2 focus:ring-slate-900"
@@ -202,10 +204,11 @@ export function renderNewListingModal(container) {
               </div>
 
               <div>
-                <label class="text-xs font-bold text-slate-700">Price in Ethiopian Birr (ETB)</label>
+                <label class="text-xs font-bold text-slate-700" for="prop-price">Price in Ethiopian Birr (ETB)</label>
                 <input 
                   type="number" 
                   id="prop-price" 
+                  name="prop-price"
                   required 
                   value="45000000" 
                   step="500000"
@@ -215,26 +218,30 @@ export function renderNewListingModal(container) {
               </div>
 
               <div>
-                <label class="text-xs font-bold text-slate-700">Total Net Area (m²)</label>
+                <label class="text-xs font-bold text-slate-700" for="prop-area">Total Net Area (m²)</label>
                 <input 
                   type="number" 
                   id="prop-area" 
+                  name="prop-area"
                   required 
                   value="185" 
                   class="mt-1 w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 focus:ring-2 focus:ring-slate-900"
                 />
               </div>
 
-              <div>
-                <label class="text-xs font-bold text-slate-700">Bedrooms & Bathrooms</label>
-                <div class="grid grid-cols-2 gap-2 mt-1">
-                  <select id="prop-bedrooms" class="select-glass w-full">
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-xs font-bold text-slate-700" for="prop-bedrooms">Bedrooms</label>
+                  <select id="prop-bedrooms" name="prop-bedrooms" class="select-glass w-full mt-1">
                     <option value="2">2 Bedrooms</option>
                     <option value="3" selected>3 Bedrooms</option>
                     <option value="4">4 Bedrooms</option>
                     <option value="5">5 Bedrooms (Penthouse)</option>
                   </select>
-                  <select id="prop-bathrooms" class="select-glass w-full">
+                </div>
+                <div>
+                  <label class="text-xs font-bold text-slate-700" for="prop-bathrooms">Bathrooms</label>
+                  <select id="prop-bathrooms" name="prop-bathrooms" class="select-glass w-full mt-1">
                     <option value="2">2 Baths</option>
                     <option value="2.5" selected>2.5 Baths</option>
                     <option value="3">3 Baths</option>
@@ -245,10 +252,11 @@ export function renderNewListingModal(container) {
               </div>
 
               <div>
-                <label class="text-xs font-bold text-slate-700">Floor Level & Title Deed</label>
+                <label class="text-xs font-bold text-slate-700" for="prop-floor">Floor Level & Title Deed</label>
                 <input 
                   type="text" 
                   id="prop-floor" 
+                  name="prop-floor"
                   required 
                   value="3rd Floor • Carta Deed Ready" 
                   class="mt-1 w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl p-3 text-slate-900 focus:ring-2 focus:ring-slate-900"

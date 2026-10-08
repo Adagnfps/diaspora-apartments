@@ -48,10 +48,11 @@ export function renderMakeOfferModal(container) {
         <form id="make-offer-form" class="space-y-4">
           
           <div>
-            <label class="text-xs font-bold text-gray-700 block mb-1">Your Proposed Offer Amount (in ETB)</label>
+            <label class="text-xs font-bold text-gray-700 block mb-1" for="offer-amount">Your Proposed Offer Amount (in ETB)</label>
             <input 
               type="number" 
               id="offer-amount" 
+              name="offer-amount"
               required 
               value="${prop.priceETB}" 
               step="500000"
@@ -62,10 +63,11 @@ export function renderMakeOfferModal(container) {
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="text-xs font-bold text-gray-700 block mb-1">Your Full Name</label>
+              <label class="text-xs font-bold text-gray-700 block mb-1" for="offer-buyer-name">Your Full Name</label>
               <input 
                 type="text" 
                 id="offer-buyer-name" 
+                name="offer-buyer-name"
                 required 
                 placeholder="e.g. Dawit Haile" 
                 class="w-full text-xs font-medium bg-white border border-gray-300 rounded-xl p-3 text-[#141414] focus:ring-2 focus:ring-[#141414]"
@@ -73,10 +75,11 @@ export function renderMakeOfferModal(container) {
             </div>
 
             <div>
-              <label class="text-xs font-bold text-gray-700 block mb-1">Phone / WhatsApp Number</label>
+              <label class="text-xs font-bold text-gray-700 block mb-1" for="offer-phone">Phone / WhatsApp Number</label>
               <input 
                 type="tel" 
                 id="offer-phone" 
+                name="offer-phone"
                 required 
                 placeholder="e.g. +1 (571) 234-5678" 
                 class="w-full text-xs font-medium bg-white border border-gray-300 rounded-xl p-3 text-[#141414] focus:ring-2 focus:ring-[#141414]"
@@ -86,8 +89,8 @@ export function renderMakeOfferModal(container) {
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="text-xs font-bold text-gray-700 block mb-1">Buyer Location</label>
-              <select id="offer-location" class="select-glass w-full">
+              <label class="text-xs font-bold text-gray-700 block mb-1" for="offer-location">Buyer Location</label>
+              <select id="offer-location" name="offer-location" class="select-glass w-full">
                 <option value="US Diaspora">United States (Diaspora)</option>
                 <option value="UK / Europe Diaspora">UK & Europe (Diaspora)</option>
                 <option value="Canada Diaspora">Canada (Diaspora)</option>
@@ -98,8 +101,8 @@ export function renderMakeOfferModal(container) {
             </div>
 
             <div>
-              <label class="text-xs font-bold text-gray-700 block mb-1">Financing / Payment Method</label>
-              <select id="offer-payment" class="select-glass w-full">
+              <label class="text-xs font-bold text-gray-700 block mb-1" for="offer-payment">Financing / Payment Method</label>
+              <select id="offer-payment" name="offer-payment" class="select-glass w-full">
                 <option value="CBE Diaspora FX Escrow">CBE Diaspora FX Escrow</option>
                 <option value="Awash Foreign Currency Wire">Awash Bank FX Wire</option>
                 <option value="Milestone Installments (25/45/30)">Milestone Installments (25/45/30)</option>
